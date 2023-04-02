@@ -1,21 +1,16 @@
-import React from "react";
-import QuizHolder, { QuizContext } from "./store/QuizHolder";
-import Quiz from "./componenet/Quiz";
-import Button from "./componenet/Button";
-import Result from "./componenet/Result";
-import { db } from "./store/firebase";
 import Tempdb from "./componenet/Tempdb";
+import QuizForm from "./pages/QuizForm";
+import TakeQuiz from "./pages/TakeQuiz";
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
 function App() {
-  const { start, exit } = React.useContext(QuizContext);
-
   return (
     <div className="App">
-      {exit == false ? (
-        <>{start == true ? <Quiz /> : <Button text="start" />}</>
-      ) : (
-        <Result />
-      )}
-      <Tempdb />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/createQuiz" element={<QuizForm />} />
+        <Route path="/quiz" element={<TakeQuiz />} />
+      </Routes>
     </div>
   );
 }

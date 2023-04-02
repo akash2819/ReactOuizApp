@@ -85,6 +85,8 @@ type QuizContextType = {
   setCorrect: any;
   quizzes: any;
   setQuizzes: any;
+  quizName: string;
+  setQuizName: any;
 };
 
 export const QuizContext = createContext<QuizContextType>({
@@ -96,6 +98,8 @@ export const QuizContext = createContext<QuizContextType>({
   setCorrect: () => {},
   quizzes: [],
   setQuizzes: () => {},
+  quizName: "quiz",
+  setQuizName: () => {},
 });
 
 export default function QuizHolder(props: any) {
@@ -103,6 +107,7 @@ export default function QuizHolder(props: any) {
   const [exit, setExit] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [quizzes, setQuizzes] = useState([]);
+  const [quizName, setQuizName] = useState("");
   return (
     <QuizContext.Provider
       value={{
@@ -114,6 +119,8 @@ export default function QuizHolder(props: any) {
         setCorrect,
         quizzes,
         setQuizzes,
+        quizName,
+        setQuizName,
       }}
     >
       {props.children}
