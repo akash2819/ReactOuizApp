@@ -6,7 +6,7 @@ const Button = (props: any) => {
   console.log(typeof props.action, "--", start);
   return (
     <button
-      onClick={() => setStart(!start)}
+      onClick={() => setStart(true)}
       className={` text-2xl bg-orange-400 px-2 py-5`}
     >
       {props.text}
